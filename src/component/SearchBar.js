@@ -1,11 +1,12 @@
 import { useState } from "react";
 
 function filterRestaurant(restaurants, searchText) {
+  console.log(searchText)
   return restaurants.filter((restaurant) =>
     restaurant.data.name.includes(searchText)
   );
 }
-const SearchBar = ({ restaurant, setRestaurant }) => {
+const SearchBar = ({ restaurant ,setFilteredRestaurant}) => {
   const [searchText, setSearchText] = useState("");
   return (
     <div>
@@ -19,7 +20,7 @@ const SearchBar = ({ restaurant, setRestaurant }) => {
       />
       <button
         onClick={() => {
-          setRestaurant(filterRestaurant(restaurant, searchText));
+          setFilteredRestaurant(filterRestaurant(restaurant, searchText));
         }}
       >
         Search

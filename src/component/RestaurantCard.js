@@ -9,10 +9,10 @@ const RestaurantCard = ({
   return (
     <div className="card">
       <img alt="food image" src={productImgApi + cloudinaryImageId} />
-      <h4>{name}</h4>
-      <h5>{avgRating} *</h5>
-      <p>{cuisines.join(",")}</p>
-      <h6>{area}</h6>
+      <h5 className="card-name">{name}</h5>
+      <p className="card-avgrating">* {avgRating}</p>
+      <p className="card-cuisines">{cuisines.join(" , ")}</p>
+      <p className="card-area">{area}</p>
     </div>
   );
 };
