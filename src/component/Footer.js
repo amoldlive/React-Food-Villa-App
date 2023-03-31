@@ -1,10 +1,19 @@
-import {applestore} from "../asset/img/applestore.png"
+import { androidDownload, appleDownload } from "./Constant";
 
 const Footer = () => {
   return (
     <div className="footer">
-        <img key="applestore" src={applestore} alt="applestore"/>
+      <div className="app-download">
+        <img key="appleDownload" src={appleDownload} alt="appleDownload" />
+        <img
+          key="androidDownload"
+          src={androidDownload}
+          alt="androidDownload"
+        />
+      </div>
+      <div className="copyright">
         <p>&copy;foodvilla@2023</p>
+      </div>
     </div>
   );
 };

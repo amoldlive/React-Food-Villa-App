@@ -4,3 +4,6 @@ export const appLogo="https://assets.materialup.com/uploads/61d86780-be13-47fa-8
 
 export const productImgApi="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/";
 
+export const appleDownload="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg";
+
+export const androidDownload="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg";

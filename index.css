@@ -86,3 +86,16 @@ margin: 0px;
   display: flex;
   flex-wrap: wrap;
 }
+
+
+.app-download{
+  display: flex;
+}
+.app-download>img{
+  margin: 5px;
+  width: 100x;
+  height: 40;
+}
+.copyright{
+ text-align: center;
+}
