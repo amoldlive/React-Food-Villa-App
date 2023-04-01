@@ -1,8 +1,9 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { appLogo } from "./Constant";
 
 const Header = () => {
-  const [isLoggedIn , setIsLoggedIn] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
 
   return (
     <div className="header">
@@ -11,17 +12,40 @@ const Header = () => {
       </a>
       <div className="navbar">
         <ul>
-          <li>Home</li>
-          <li>Contact</li>
-          <li>About Us</li>
-          <li>Cart</li>
+          <Link to="/">
+            <li>Home</li>
+          </Link>
+          &nbsp;&nbsp;
+          <Link to="/contact">
+            <li>Contact</li>
+          </Link>
+          &nbsp;&nbsp;
+          <Link to="/aboutus">
+            <li>About Us</li>
+          </Link>
+          &nbsp;&nbsp;
+          <Link to="/cart">
+            <li>Cart</li>
+          </Link>
         </ul>
       </div>
       <div>
         {isLoggedIn ? (
-          <button  onClick={()=>{setIsLoggedIn(false)}}>Sign In</button>
+          <button
+            onClick={() => {
+              setIsLoggedIn(false);
+            }}
+          >
+            Sign In
+          </button>
         ) : (
-          <button onClick={()=>{setIsLoggedIn(true)}}>Sign out</button>
+          <button
+            onClick={() => {
+              setIsLoggedIn(true);
+            }}
+          >
+            Sign out
+          </button>
         )}
       </div>
     </div>

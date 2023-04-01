@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import SearchBar from "./SearchBar.js";
 import ShimmerUi from "./Shimmer";
 import NoRestaurantFound from "./NoRestaurantFound";
+import { Link } from "react-router-dom";
 
 const Body = () => {
   const [restaurant, setRestaurant] = useState([]);
@@ -32,12 +33,20 @@ const Body = () => {
         setFilteredRestaurant={setFilteredRestaurant}
       />
       <div className="cards">
-        { (filteredRestaurant.length===0) ? <NoRestaurantFound/> :
-         (filteredRestaurant.map((restaurant) => {
-          return (
-            <RestaurantCard {...restaurant.data} key={restaurant.data.id} />
-          );
-        }))}
+        {filteredRestaurant.length === 0 ? (
+          <NoRestaurantFound />
+        ) : (
+          filteredRestaurant.map((restaurant) => {
+            return (
+              <Link
+                to={"/restaurant/"+restaurant.data.id+"/menu"}
+                key={restaurant.data.id}
+              >
+                <RestaurantCard {...restaurant.data} key={restaurant.data.id} />
+              </Link>
+            );
+          })
+        )}
       </div>
     </>
   );

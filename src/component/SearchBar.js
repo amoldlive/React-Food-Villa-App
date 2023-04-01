@@ -3,7 +3,7 @@ import { useState } from "react";
 function filterRestaurant(restaurants, searchText) {
   console.log(searchText)
   return restaurants.filter((restaurant) =>
-    restaurant.data.name.includes(searchText)
+    restaurant.data.name.toLowerCase().includes(searchText.toLowerCase())
   );
 }
 const SearchBar = ({ restaurant ,setFilteredRestaurant}) => {

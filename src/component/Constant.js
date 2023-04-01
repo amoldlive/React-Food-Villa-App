@@ -7,3 +7,5 @@ export const productImgApi="https://res.cloudinary.com/swiggy/image/upload/fl_lo
 export const appleDownload="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg";
 
 export const androidDownload="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg";
+
+export const menuApi="https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=18.5904779&lng=73.7271909&restaurantId=";
