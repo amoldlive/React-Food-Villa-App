@@ -8,6 +8,7 @@ import Aboutus from "./component/Aboutus";
 import Contact from "./component/Contact";
 import Cart from "./component/Cart";
 import Menu from "./component/Menu";
+import Profile from "./component/Profile";
 
 const App = () => {
   return (
@@ -35,6 +36,12 @@ const routes = createBrowserRouter([
       {
         path: "/contact",
         element: <Contact />,
+        children: [
+          {
+            path:"profile",
+            element:<Profile/>
+          }
+        ]
       },
       {
         path: "/cart",

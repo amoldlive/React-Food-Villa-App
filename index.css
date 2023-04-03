@@ -139,3 +139,13 @@
 .menu-tab-info > p {
   margin: 0px;
 }
+.Profile>img{
+  width: 200px;
+  border-radius: 50%;
+}
+.Profile>h2{
+  margin: 0px;
+}
+.Profile>p{
+  margin: 0px;
+}
