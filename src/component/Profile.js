@@ -7,6 +7,10 @@ const Profile = () => {
 
   useEffect(() => {
     getProfileDetails();
+
+    return ()=>{
+      console.log("unmounting component...");
+    }
   }, []);
 
   async function getProfileDetails() {

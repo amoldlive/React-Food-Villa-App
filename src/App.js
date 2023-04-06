@@ -9,6 +9,9 @@ import Contact from "./component/Contact";
 import Cart from "./component/Cart";
 import Menu from "./component/Menu";
 import Profile from "./component/Profile";
+import ProfileComponent from "./component/ProfileComponent";
+import AboutusComponent from "./component/AboutusComponent";
+import ContactComponent from "./component/ContactComponent";
 
 const App = () => {
   return (
@@ -31,15 +34,18 @@ const routes = createBrowserRouter([
       },
       {
         path: "/aboutus",
-        element: <Aboutus />,
+        /* element: <Aboutus />, */  /* fundtional component */
+        element: <AboutusComponent/> /* class component */
       },
       {
         path: "/contact",
-        element: <Contact />,
+        /* element: <Contact />, */
+        element: <ContactComponent/>,
         children: [
           {
             path:"profile",
-            element:<Profile/>
+            /* element:<Profile/> */
+            element : <ProfileComponent/> /* class component */
           }
         ]
       },
