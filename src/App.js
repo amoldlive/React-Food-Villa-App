@@ -1,4 +1,4 @@
-import React from "react";
+import React, { lazy } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./component/Header";
 import Footer from "./component/Footer";
@@ -12,6 +12,11 @@ import Profile from "./component/Profile";
 import ProfileComponent from "./component/ProfileComponent";
 import AboutusComponent from "./component/AboutusComponent";
 import ContactComponent from "./component/ContactComponent";
+//import Instamart from "./component/Instamart";
+
+/* lazy loading / dynamic import / chuncking  */
+/* To generate seperate js file */
+const Instamart = lazy(() => import("./component/Instamart"));
 
 const App = () => {
   return (
@@ -34,29 +39,33 @@ const routes = createBrowserRouter([
       },
       {
         path: "/aboutus",
-        /* element: <Aboutus />, */  /* fundtional component */
-        element: <AboutusComponent/> /* class component */
+        /* element: <Aboutus />, */ /* fundtional component */
+        element: <AboutusComponent /> /* class component */,
       },
       {
         path: "/contact",
         /* element: <Contact />, */
-        element: <ContactComponent/>,
+        element: <ContactComponent />,
         children: [
           {
-            path:"profile",
+            path: "profile",
             /* element:<Profile/> */
-            element : <ProfileComponent/> /* class component */
-          }
-        ]
+            element: <ProfileComponent /> /* class component */,
+          },
+        ],
       },
       {
         path: "/cart",
         element: <Cart />,
       },
       {
-        path:"/restaurant/:restaurantId/menu",
-        element:<Menu/>
-      }
+        path: "/restaurant/:restaurantId/menu",
+        element: <Menu />,
+      },
+      {
+        path: "/Instamart",
+        element: <Instamart />,
+      },
     ],
   },
 ]);
