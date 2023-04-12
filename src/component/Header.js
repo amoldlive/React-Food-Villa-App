@@ -5,15 +5,17 @@ import useConnectionStatus from "./hooks/useConnectionStatus.js";
 
 const Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
-  const isOnline=useConnectionStatus();
+  const isOnline = useConnectionStatus();
 
   return (
-    <div className="header">
-      <a href="/">
-        <img className="logo-img" alt="App Logo" src={appLogo}></img>
-      </a>
-      <div className="navbar">
-        <ul>
+    <div className="flex">
+      <div className="flex">
+        <a href="/">
+          <img className="h-20 w-20 mr-10" alt="App Logo" src={appLogo}></img>
+        </a>
+      </div>
+      <div >
+        <ul className="flex mr-10">
           <Link to="/">
             <li>Home</li>
           </Link>
@@ -35,7 +37,7 @@ const Header = () => {
           </Link>
         </ul>
       </div>
-      <div >Status : {isOnline ? '✅' : '🔴' } </div>
+      <div>Status : {isOnline ? "✅" : "🔴"} </div>
       <div>
         {isLoggedIn ? (
           <button
