@@ -3,6 +3,9 @@ import { useParams } from "react-router-dom";
 import { menuApi, productImgApi } from "./Constant";
 import Shimmer from "./Shimmer";
 import useRestaurantData from "./hooks/useRestaurantData";
+const getPrice=(price)=>{
+  return price.toString().substring(0,2);
+}
 const Menu = () => {
   const { restaurantId } = useParams();
   const { restaurantInfo, restaurantMenu } = useRestaurantData(restaurantId);
@@ -10,19 +13,19 @@ const Menu = () => {
   return restaurantInfo.length === 0 || restaurantMenu.length === 0 ? (
     <Shimmer />
   ) : (
-    <div className="restaurant-info-menu">
-      <div className="restaurant-info">
-        <div className="restaurant-info-details">
-          <h4>{restaurantInfo.name}</h4>
-          <p>{restaurantInfo.id}</p>
-          <p>
+    <div className="flex">
+      <div className="m-5">
+        <div>
+          <h4 className="font-bold">{restaurantInfo.name}</h4>
+          <p className="font-extralight">{restaurantInfo.id}</p>
+          <p className="font-light">
             {restaurantInfo.locality +
               " , " +
               restaurantInfo.areaName +
               " , " +
               restaurantInfo.city}
           </p>
-          <p style={{ color: "red" }}>{restaurantInfo.cuisines}</p>
+          <p className="text-red-600">{restaurantInfo.cuisines}</p>
         </div>
         <div>
           <p>
@@ -31,20 +34,21 @@ const Menu = () => {
           </p>
         </div>
       </div>
-      <div className="restaurant-info-menu-details">
-        <h4>Menu</h4>
-        <div className="menu-list">
+      <div className="m-5">
+        <h4 className="font-bold">Menu</h4>
+        <div className="drop-shadow-lg">
           {restaurantMenu.map((e) => (
             <div key={e?.card?.info?.id} className="menu-tab">
-              <div className="menu-tab-info">
-                <p key={e?.card?.info?.name}>{e?.card?.info?.name}</p>
-                <p key={e?.card?.info?.price}>{e?.card?.info?.price}</p>
-              </div>
               <div>
                 <img
+                  className="w-60 h-28"
                   src={productImgApi + e?.card?.info?.imageId}
                   alt="product-image"
                 />
+               </div>
+              <div className="flex mb-5">
+                <p className="bg-yellow-300 w-32 "  key={e?.card?.info?.name}>{e?.card?.info?.name}</p>
+                <p className="bg-green-300 text-right w-28 mr-3" key={e?.card?.info?.price}> &#8377; &nbsp; {getPrice(e?.card?.info?.price)}</p>
               </div>
             </div>
           ))}

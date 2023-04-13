@@ -24,8 +24,8 @@ const Profile = () => {
     <div>profile page shimer</div>
   ) : (
         <div className="Profile">
-            <img src={avatar_url} alt="avatar image"/>
-            <h2>{name}</h2>
+            <img className="rounded-full w-28 h-28" src={avatar_url} alt="avatar image"/>
+            <h2 className="font-semibold">{name}</h2>
             <p>{id} | {login}</p>
             <p>Company : {company}</p>
             <p>Location : {location}</p>

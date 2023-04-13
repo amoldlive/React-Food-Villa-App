@@ -6,13 +6,13 @@ import Body from "./component/Body";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import Cart from "./component/Cart";
 import Menu from "./component/Menu";
-import ProfileComponent from "./component/ProfileComponent";
 import AboutusComponent from "./component/AboutusComponent";
 import ContactComponent from "./component/ContactComponent";
 import Error from "./component/Error";
 import ShimmerUi from "./component/Shimmer";
 //import Instamart from "./component/Instamart";
-
+import Profile from "./component/Profile";
+import Contact from "./component/Contact"
 /* lazy loading / dynamic import / chuncking  */
 /* To generate seperate js file */
 const Instamart = lazy(() => import("./component/Instamart"));
@@ -44,13 +44,13 @@ const routes = createBrowserRouter([
       },
       {
         path: "/contact",
-        /* element: <Contact />, */
-        element: <ContactComponent />,
+        element: <Contact />,
+        /* element: <ContactComponent /> */
         children: [
           {
             path: "profile",
-            /* element:<Profile/> */
-            element: <ProfileComponent /> /* class component */,
+            element: <Profile />,
+            //element: <ProfileComponent /> /* class component */,
           },
         ],
       },

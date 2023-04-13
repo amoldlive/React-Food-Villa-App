@@ -32,7 +32,7 @@ const Body = () => {
         restaurant={restaurant}
         setFilteredRestaurant={setFilteredRestaurant}
       />
-      <div className="cards">
+      <div className="flex flex-wrap">
         {filteredRestaurant.length === 0 ? (
           <NoRestaurantFound />
         ) : (

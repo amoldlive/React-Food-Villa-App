@@ -9,8 +9,8 @@ function filterRestaurant(restaurants, searchText) {
 const SearchBar = ({ restaurant ,setFilteredRestaurant}) => {
   const [searchText, setSearchText] = useState("");
   return (
-    <div>
-      <input
+    <div className="mt-2">
+      <input className="m-3"
         type="text"
         placeholder="search"
         value={searchText}
@@ -18,7 +18,7 @@ const SearchBar = ({ restaurant ,setFilteredRestaurant}) => {
           setSearchText(e.target.value);
         }}
       />
-      <button
+      <button className="bg-red-100 rounded-md w-20"
         onClick={() => {
           setFilteredRestaurant(filterRestaurant(restaurant, searchText));
         }}

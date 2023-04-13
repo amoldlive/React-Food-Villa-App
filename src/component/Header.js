@@ -8,16 +8,16 @@ const Header = () => {
   const isOnline = useConnectionStatus();
 
   return (
-    <div className="flex">
-      <div className="flex">
+    <div className="flex drop-shadow-lg border-b-2">
+      <div className="flex mr-60">
         <a href="/">
-          <img className="h-20 w-20 mr-10" alt="App Logo" src={appLogo}></img>
+          <img className="h-20 w-20 m-5" alt="App Logo" src={appLogo}></img>
         </a>
       </div>
-      <div >
-        <ul className="flex mr-10">
+      <div className="mt-10">
+        <ul className="flex mr-80 font-semibold" >
           <Link to="/">
-            <li>Home</li>
+            <li >Home</li>
           </Link>
           &nbsp;&nbsp;
           <Link to="/contact">
@@ -37,10 +37,10 @@ const Header = () => {
           </Link>
         </ul>
       </div>
-      <div>Status : {isOnline ? "✅" : "🔴"} </div>
-      <div>
+      <div className="mr-28 mt-10">Status : {isOnline ? "✅" : "🔴"} </div>
+      <div className="float-right mt-10">
         {isLoggedIn ? (
-          <button
+          <button className="bg-purple-50 float-right"
             onClick={() => {
               setIsLoggedIn(false);
             }}
@@ -48,7 +48,7 @@ const Header = () => {
             Sign In
           </button>
         ) : (
-          <button
+          <button className="bg-purple-50 float-right"
             onClick={() => {
               setIsLoggedIn(true);
             }}
