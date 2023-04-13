@@ -1,17 +1,16 @@
-import React, { lazy } from "react";
+import React, { lazy, Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./component/Header";
 import Footer from "./component/Footer";
 import Body from "./component/Body";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
-import Aboutus from "./component/Aboutus";
-import Contact from "./component/Contact";
 import Cart from "./component/Cart";
 import Menu from "./component/Menu";
-import Profile from "./component/Profile";
 import ProfileComponent from "./component/ProfileComponent";
 import AboutusComponent from "./component/AboutusComponent";
 import ContactComponent from "./component/ContactComponent";
+import Error from "./component/Error";
+import ShimmerUi from "./component/Shimmer";
 //import Instamart from "./component/Instamart";
 
 /* lazy loading / dynamic import / chuncking  */
@@ -32,6 +31,7 @@ const routes = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    errorElement: <Error />,
     children: [
       {
         path: "/",
@@ -64,7 +64,11 @@ const routes = createBrowserRouter([
       },
       {
         path: "/Instamart",
-        element: <Instamart />,
+        element: (
+          <Suspense fallback={<ShimmerUi />}>
+            <Instamart />
+          </Suspense>
+        ),
       },
     ],
   },
